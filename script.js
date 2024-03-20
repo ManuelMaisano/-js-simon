@@ -13,8 +13,51 @@ const numberOutput = document.querySelector('.number-random');
 
 console.log(numberOutput);
 
+
+numberOutput.innerHTML = randomNumber;
+
 //variabile numeri random
 
-let casualNumber = Math.floor((Math.random() * 100) + 1);
 
-console.log(casualNumber);
+
+
+let numberArray = 5;
+
+while (randomNumber.length < numberArray) {
+    let casualNumber = Math.floor((Math.random() * 100) + 1);
+    if(!randomNumber.includes(casualNumber)) {
+        randomNumber.push(casualNumber)
+    }
+    casualNumber++
+}
+
+console.log(randomNumber);
+
+
+
+//timeoutfunciton
+
+
+const cancelTheNumbers = setTimeout (function() {
+    numberOutput.innerHTML = '';
+}, 5000)
+
+const promptUser = setTimeout (function() {
+    let userNumberInTheArray = []
+    for (let i = 0; i < numberArray; i++) {
+        let userNumber = parseInt(prompt('Scrivi un numero che ricordi'))
+        userNumberInTheArray.push(userNumber)
+    }
+    console.log(userNumberInTheArray);
+
+    let yourScore = 0;
+    for (let i = 0; i < userNumberInTheArray.length; i++) {
+        let compareNumber = userNumberInTheArray[i]
+        if (randomNumber.includes(compareNumber)) {
+            yourScore++
+        }
+    }
+
+    const resultUser = document.querySelector('.result')
+    resultUser.innerHTML = `Hai totalizzato: ${yourScore} punti perché hai ricordato: ${correctNumbers}`
+}, 6000)
