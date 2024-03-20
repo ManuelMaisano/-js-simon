@@ -31,6 +31,9 @@ while (randomNumber.length < numberArray) {
     casualNumber++
 }
 
+numberOutput.innerHTML = randomNumber;
+
+
 console.log(randomNumber);
 
 
@@ -40,7 +43,7 @@ console.log(randomNumber);
 
 const cancelTheNumbers = setTimeout (function() {
     numberOutput.innerHTML = '';
-}, 5000)
+},10000)
 
 const promptUser = setTimeout (function() {
     let userNumberInTheArray = []
@@ -51,13 +54,17 @@ const promptUser = setTimeout (function() {
     console.log(userNumberInTheArray);
 
     let yourScore = 0;
+    const correctNumbers = [];
     for (let i = 0; i < userNumberInTheArray.length; i++) {
         let compareNumber = userNumberInTheArray[i]
         if (randomNumber.includes(compareNumber)) {
+            correctNumbers.push(compareNumber)
             yourScore++
         }
     }
 
     const resultUser = document.querySelector('.result')
-    resultUser.innerHTML = `Hai totalizzato: ${yourScore} punti perché hai ricordato: ${correctNumbers}`
-}, 31000)
+    console.log(resultUser);
+
+  
+},12000)
