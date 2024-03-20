@@ -60,4 +60,4 @@ const promptUser = setTimeout (function() {
 
     const resultUser = document.querySelector('.result')
     resultUser.innerHTML = `Hai totalizzato: ${yourScore} punti perché hai ricordato: ${correctNumbers}`
-}, 6000)
+}, 31000)
